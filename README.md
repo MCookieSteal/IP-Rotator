@@ -3,7 +3,7 @@
 Este es un script en Python que utiliza la librería stem para establecer una conexión con Tor y rotar las direcciones IP de manera programática. El objetivo es cambiar las direcciones IP para evitar el bloqueo o el rastreo en la web. Mediante Tor conseguiremos ir saltando de IP, y mediante FoxyProxy nos conectaremos al proxy creado en local para salir a internet. Es imnportante decir que este codigo esta pensado para Linux, pero con algunos cambios podria ser util en Windows.
 ## Requerimientos
 
-Este script requiere la instalación previa de Tor y de FoxyProxy, ya que es sencillo de utilizar (es un addon que hay que instalar en nuestro navegador). Ademas, del script.
+Este script requiere la instalación previa de Tor y de FoxyProxy, ya que es sencillo de utilizar _(es un addon que hay que instalar en nuestro navegador)_. Ademas, del script.
 
 ## Instalación
 
@@ -13,7 +13,7 @@ El primer paso para que todo fincione correctamentre, es descargarnos Tor. Una v
 tor --hash-password <password>
 ```
 
-Eso nos dara un hash que tendremos que pegar en nuestro archivo de configuracion. Despues, iremos al archivo de configuracion situado en "/etc/tor/torrc" con un editor de texto, y modificaremos las siguientes lines que estaran comentadas (borrar "#"):
+Eso nos dara un hash que tendremos que pegar en nuestro archivo de configuracion. Despues, iremos al archivo de configuracion situado en _"/etc/tor/torrc"_ con un editor de texto, y modificaremos las siguientes lines que estaran comentadas _(borrar "#")_:
 
 ```
 ControlPort 9051
@@ -26,7 +26,7 @@ CookieAuthentication 1
 sudo service tor restart   
 ```
 
-Ahora ya solo nos quedara configurar FoxyProxy, poniendo la IP "127.0.0.1" y el puerto "8118" y poner en el codigo, la contraseña que hemos creado antes con Tor(en texto claro).
+Ahora ya solo nos quedara configurar FoxyProxy, poniendo la IP _"127.0.0.1"_ y el puerto _"8118"_ y poner en el codigo, la contraseña que hemos creado antes con Tor _(en texto claro)_.
 
 ```
 controller.authenticate(password='AQUI_LA_CONTRASEÑA')
