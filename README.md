@@ -41,7 +41,7 @@ Ahora ya solo nos quedara disfrutar de nuestro codigo ejecutando:
 ```
 python rotado_IP.py
 ```
-
+(ruta/a/la/imagen.png)
 
 ## Personalización
 
