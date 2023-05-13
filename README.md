@@ -41,7 +41,8 @@ Ahora ya solo nos quedara disfrutar de nuestro codigo ejecutando:
 ```
 python rotado_IP.py
 ```
-"Images/FoxyProxy.png"
+![](https://github.com/aldekoa15/IP-Rotator/assets/86263146/2bc7ac8c-2c98-430d-9238-3dcad6bc8627)
+
 
 ## Personalización
 
