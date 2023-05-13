@@ -41,7 +41,7 @@ Ahora ya solo nos quedara disfrutar de nuestro codigo ejecutando:
 ```
 python rotado_IP.py
 ```
-(Images/FoxyProxy.png)
+"Images/FoxyProxy.png"
 
 ## Personalización
 
