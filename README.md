@@ -42,16 +42,20 @@ Ahora ya solo nos quedara disfrutar de nuestro codigo ejecutando:
 python IP_rotator.py
 ```
 ## Imagenes
+Como podemos ver en las siguientes imagen, esta seria la configuracion de FoxyProxy y este seria el funcionamiento de el rotador de IPs. Una paguina para ver si tu IP se esta rotando de manera correcta es, pero es importante saber que hay que cerrar y abrir el navegador para ver el cambio, por temas de cookies...:
+
+```
+http://icanhazip.com/
+```
+
+
 ![Como podemos ver en esta imagen, esta seria la configuracion de FoxyProxy.](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
 ![Como podemos ver en esta imagen este es el ejemplo de uso.](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
-
 
 
 ## Personalización
 
 Puedes personalizar el tiempo de espera entre rotaciones de IP cambiando el valor del parámetro time.sleep() en el loop principal del script. Se recomienda dejarlo en 10 ya que Tor, no es capaz de rotar las IPs mas rapido.
-
-## Capturas de uso
 
 
 ## Aviso legal
