@@ -3,12 +3,12 @@
 Este es un script en Python que utiliza la librería stem para establecer una conexión con Tor y rotar las direcciones IP de manera programática. El objetivo es cambiar las direcciones IP para evitar el bloqueo o el rastreo en la web.
 ## Requerimientos
 
-Este script requiere la instalación previa de Tor y la librería stem.
+Este script requiere la instalación previa de Tor y de FoxyProxy, ya que es sencillo de utilizar.
 ## Uso
 
 Para usar este script, simplemente ejecútalo en tu terminal:
 
-python rotado_IP.py
+```python rotado_IP.py
 
 El script se ejecutará en un loop infinito, rotando las direcciones IP cada 10 segundos.
 ## Personalización
