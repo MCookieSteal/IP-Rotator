@@ -4,8 +4,10 @@ Este es un script en Python que utiliza la librería stem para establecer una co
 ## Requerimientos
 
 Este script requiere la instalación previa de Tor y de FoxyProxy, ya que es sencillo de utilizar _(es un addon que hay que instalar en nuestro navegador)_. Ademas, del script.
+```
 FoxyProxy Mozilla: https://addons.mozilla.org/es/firefox/addon/foxyproxy-standard/
 FoxyProxy Chrome: https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp
+```
 
 ## Instalación
 
