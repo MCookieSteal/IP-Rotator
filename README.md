@@ -39,10 +39,11 @@ controller.authenticate(password='AQUI_LA_CONTRASEÑA')
 Ahora ya solo nos quedara disfrutar de nuestro codigo ejecutando:
 
 ```
-python rotado_IP.py
+python IP_rotator.py
 ```
-![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
-![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
+## Imagenes
+![Como podemos ver en esta imagen, esta seria la configuracion de FoxyProxy.](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
+![Como podemos ver en esta imagen este es el ejemplo de uso.](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
 
 
 
