@@ -41,8 +41,8 @@ Ahora ya solo nos quedara disfrutar de nuestro codigo ejecutando:
 ```
 python rotado_IP.py
 ```
-![](https://github.com/aldekoa15/IP-Rotator/tree/main/Images/FoxyProxy.png)
-![](https://github.com/aldekoa15/IP-Rotator/tree/main/Images/Example.png)
+![](https://github.com/aldekoa15/IP-Rotator/tree/main/Images/FoxyProxy.PNG)
+![](https://github.com/aldekoa15/IP-Rotator/tree/main/Images/Example.PNG)
 
 
 ## Personalización
