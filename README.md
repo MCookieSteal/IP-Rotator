@@ -25,7 +25,7 @@ Once we have made the changes, we will restart the Tor service:
 ```
 sudo service tor restart   
 ```
-Now we just have to configure FoxyProxy, by putting the IP "127.0.0.1" and port "8118", and entering the password we created earlier with Tor (in plain text) into the code:
+Now we just have to configure FoxyProxy, by putting the IP "127.0.0.1" and port "8118", and entering the password we created earlier with Tor _(in plain text)_ into the code:
 ```
 controller.authenticate(password='HERE_THE_PASSWORD')
 ```
