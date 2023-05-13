@@ -8,7 +8,7 @@ Este script requiere la instalación previa de Tor y de FoxyProxy, ya que es sen
 
 Para usar este script, simplemente ejecútalo en tu terminal:
 
-```python rotado_IP.py
+```python rotado_IP.py```
 
 El script se ejecutará en un loop infinito, rotando las direcciones IP cada 10 segundos.
 ## Personalización
