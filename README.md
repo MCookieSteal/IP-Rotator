@@ -1,5 +1,61 @@
-# Corrección de errores de ortografía:
-Rotación de IPs con Tor
+# Rotating IPs with Tor
+
+This is a Python script that uses the stem library to establish a connection with Tor and rotate IP addresses programmatically. The goal is to change IP addresses to avoid blocking or tracking on the web. Through Tor, we can jump from one IP address to another, and through FoxyProxy, we will connect to the proxy created locally to access the internet. It is important to note that this code is intended for Linux, but with some changes, it could be useful on Windows.
+## Requirements
+
+This script requires the prior installation of Tor and FoxyProxy, which is easy to use _(it's a browser addon that needs to be installed)_. In addition, the script requires the following:
+```
+FoxyProxy Mozilla: https://addons.mozilla.org/es/firefox/addon/foxyproxy-standard/
+FoxyProxy Chrome: https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp
+```
+## Installation
+
+The first step to make everything work correctly is to download Tor. Once we have downloaded Tor, the first thing we will do is create a hash using a password that we choose, with the following command:
+```
+tor --hash-password <password>
+```
+This will give us a hash that we will have to paste into our configuration file. Then, we will go to the configuration file located at _"/etc/tor/torrc"_ with a text editor, and modify the following lines that will be commented out _(delete "#")_ :
+
+```
+ControlPort 9051
+HashedControlPassword <<Here we will put our hashed password>>
+CookieAuthentication 1
+```
+Once we have made the changes, we will restart the Tor service:
+```
+sudo service tor restart   
+```
+Now we just have to configure FoxyProxy, by putting the IP "127.0.0.1" and port "8118", and entering the password we created earlier with Tor (in plain text) into the code:
+```
+controller.authenticate(password='HERE_THE_PASSWORD')
+```
+Now we just have to enjoy our code by running:
+```
+python IP_rotator.py
+```
+## Images
+
+As we can see in the following images, this would be the configuration of FoxyProxy and this would be the operation of the IP rotator. One website to check if your IP is rotating correctly is, but it is important to know that you have to close and reopen the browser to see the change, due to cookie issues:
+```
+http://icanhazip.com/
+curl --proxy http://127.0.0.1:8118 http://icanhazip.com/ 
+```
+
+![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
+![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
+
+## Customization
+
+You can customize the wait time between IP rotations by changing the value of the time.sleep() parameter in the main loop of the script. It is recommended to leave it at 10 since Tor is not able to rotate IPs faster.
+## Legal notice
+
+The use of this script is the responsibility of the user. Please make sure to use it ethically and legally.
+
+
+___________________________________________________________________________________________________________________________________________________________________
+
+
+# Rotación de IPs con Tor
 
 Este es un script en Python que utiliza la librería Stem para establecer una conexión con Tor y rotar las direcciones IP de manera programática. El objetivo es cambiar las direcciones IP para evitar el bloqueo o el rastreo en la web. Mediante Tor conseguiremos ir saltando de IP, y mediante FoxyProxy nos conectaremos al proxy creado en local para salir a Internet. Es importante decir que este código está pensado para Linux, pero con algunos cambios podría ser útil en Windows.
 ## Requerimientos
@@ -49,7 +105,6 @@ Como podemos ver en las siguientes imágenes, esta sería la configuración de F
 http://icanhazip.com/
 curl --proxy http://127.0.0.1:8118 http://icanhazip.com/ 
 ```
-
 
 ![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
 ![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
