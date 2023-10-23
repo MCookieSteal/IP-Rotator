@@ -10,7 +10,7 @@ from stem import Signal
 from stem.control import Controller
 from urllib.request import ProxyHandler, build_opener, install_opener
 
-resultado = subprocess.Popen("tor -f /etc/tor/torrc-instance0 | tor -f /etc/tor/torrc-instance1 | tor -f /etc/tor/torrc-instance2| tor -f /etc/tor/torrc-instance3 | tor -f /etc/tor/torrc-instance4 | tor -f /etc/tor/torrc-instance5 | tor -f /etc/tor/torrc-instance6 | tor -f /etc/tor/torrc-instance7 | tor -f /etc/tor/torrc-instance8", shell=True, text=True)
+resultado = subprocess.Popen("tor -f /etc/tor/torrc-instance0 & tor -f /etc/tor/torrc-instance1 & tor -f /etc/tor/torrc-instance2 & tor -f /etc/tor/torrc-instance3 & tor -f /etc/tor/torrc-instance4 & tor -f /etc/tor/torrc-instance5 & tor -f /etc/tor/torrc-instance6 & tor -f /etc/tor/torrc-instance7 & tor -f /etc/tor/torrc-instance8", shell=True, text=True)
 time.sleep(8)
 
 controller0 = Controller.from_port(port=9051)
