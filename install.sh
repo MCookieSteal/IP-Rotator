@@ -75,4 +75,6 @@ backend tor_backend
     server server9 127.0.0.1:9850 check
 EOF
 echo "HAPROXY configurado --> Archivo de configuracion creado --> /etc/haproxy/haproxy.cfg"
+mkdir /var/lib/tor/instance0 /var/lib/tor/instance1 /var/lib/tor/instance2 /var/lib/tor/instance3 /var/lib/tor/instance4 /var/lib/tor/instance5 /var/lib/tor/instance6 /var/lib/tor/instance7 /var/lib/tor/instance8
+echo "TOR configurado --> Archivo de configuracion creado --> /etc/tor/torrc"
 echo "Instalacion terminada"
