@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import signal
 import sys
 import time
@@ -10,7 +11,7 @@ from stem import Signal
 from stem.control import Controller
 from urllib.request import ProxyHandler, build_opener, install_opener
 
-resultado = subprocess.Popen("tor -f /etc/tor/torrc-instance0 & tor -f /etc/tor/torrc-instance1 & tor -f /etc/tor/torrc-instance2 & tor -f /etc/tor/torrc-instance3 & tor -f /etc/tor/torrc-instance4 & tor -f /etc/tor/torrc-instance5 & tor -f /etc/tor/torrc-instance6 & tor -f /etc/tor/torrc-instance7 & tor -f /etc/tor/torrc-instance8", shell=True, text=True)
+resultado = subprocess.Popen("tor -f /etc/tor/torrc-instance0 & tor -f /etc/tor/torrc-instance1 & tor -f /etc/tor/torrc-instance2 & tor -f /etc/tor/torrc-instance3 & tor -f /etc/tor/torrc-instance4 & tor -f /etc/tor/torrc-instance5 & tor -f /etc/tor/torrc-instance6 & tor -f /etc/tor/torrc-instance7 & tor -f /etc/tor/torrc-instance8 & systemctl restart haproxy.service", shell=True, text=True)
 time.sleep(8)
 
 controller0 = Controller.from_port(port=9051)
@@ -27,14 +28,8 @@ i = 0
 
 def signal_handler(sig, frame):
     print("Programa detenido")
-    resultado = subprocess.run("killall tor", shell=True, capture_output=True, text=True)
+    resultado = subprocess.run("killall tor & systemctl stop haproxy.service", shell=True, capture_output=True, text=True)
     sys.exit(0)
-
-def _set_url_proxy():
-    proxy_support = ProxyHandler({'http': '127.0.0.1:8118'})
-    opener = build_opener(proxy_support)
-    install_opener(opener)
-_set_url_proxy()
 
 def connectTor(port):
     socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5 , "127.0.0.1", port, True)
@@ -87,5 +82,5 @@ while True:
       i = 0
     i = i + 1
     show_my_ip()
-    time.sleep(1)
+    time.sleep(3)
     signal.signal(signal.SIGINT, signal_handler)
