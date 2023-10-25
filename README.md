@@ -9,8 +9,11 @@ FoxyProxy Mozilla: https://addons.mozilla.org/es/firefox/addon/foxyproxy-standar
 FoxyProxy Chrome: https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp
 ```
 ## Installation
-
-The first step to make everything work correctly is to download Tor. Once we have downloaded Tor, the first thing we will do is create a hash using a password that we choose, with the following command:
+```
+apt update & apt upgrade
+apt install tor haproxy privoxy
+```
+Once we have downloaded Tor, the first thing we will do is create a hash using a password that we choose, with the following command:
 ```
 tor --hash-password <password>
 ```
@@ -68,7 +71,13 @@ FoxyProxy Chrome: https://chrome.google.com/webstore/detail/foxyproxy-standard/g
 
 ## Instalación
 
-El primer paso para que todo funcione correctamente es descargarnos Tor. Una vez tengamos descargado Tor, lo primero que haremos es crear un hash mediante una contraseña que nosotros elijamos, con el siguiente comando:
+Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las isntancias que levantemos y Privoxy para poder usar http.
+```
+apt update & apt upgrade
+apt install tor haproxy privoxy
+```
+
+Una vez tengamos descargado Tor, lo primero que haremos es crear un hash mediante una contraseña que nosotros elijamos, con el siguiente comando:
 
 ``` 
 tor --hash-password <password>
