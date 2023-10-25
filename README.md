@@ -127,7 +127,7 @@ curl http://127.0.0.1:8118 http://echoip.com
 Ahora ya solo nos quedará disfrutar de nuestro código ejecutando:
 
 ```
-python IP_rotator.py
+python tor_ip.py
 ```
 ## Imágenes
 Como podemos ver en las siguientes imágenes, esta sería la configuración de FoxyProxy y este sería el funcionamiento del rotador de IPs. Una página para ver si tu IP se está rotando de manera correcta es, pero es importante saber que hay que cerrar y abrir el navegador para ver el cambio, por temas de cookies...:
