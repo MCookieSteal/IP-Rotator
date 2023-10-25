@@ -71,10 +71,10 @@ FoxyProxy Chrome: https://chrome.google.com/webstore/detail/foxyproxy-standard/g
 
 ## Instalación
 
-Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las isntancias que levantemos y Privoxy para poder usar http.
+Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las isntancias que levantemos y Privoxy para poder usar http. COn el archivo isntall.sh vamos a conseguir descargar y configurar las herramientas.
 ```
 apt update & apt upgrade
-apt install tor haproxy privoxy
+./install.sh
 ```
 
 Una vez tengamos descargado Tor, lo primero que haremos es crear un hash mediante una contraseña que nosotros elijamos, con el siguiente comando:
@@ -83,23 +83,45 @@ Una vez tengamos descargado Tor, lo primero que haremos es crear un hash mediant
 tor --hash-password <password>
 ```
 
-Eso nos dará un hash que tendremos que pegar en nuestro archivo de configuración. Después, iremos al archivo de configuración situado en _"/etc/tor/torrc"_ con un editor de texto y modificaremos las siguientes líneas que estarán comentadas _(borrar "#")_:
+Eso nos dará un hash que tendremos que pegar en nuestro archivo de configuración. Pero antes vamos a copiar nuestro archivo  _"/etc/tor/torrc"_ y lo vamos a crear un backup.
 
 ```
+cp /etc/tor/torrc /etc/tor/torrc_backup
+```
+
+Después, iremos al archivo de configuración situado en _"/etc/tor/torrc"_ y vamos a descomentar las siguientes lineas _(borrar "#")_ y añadir nuestro hash creado anteriormente:
+
+```
+Log notice file /var/log/tor/notices.log
+SocksPort 9050
 ControlPort 9051
+DataDirectory /var/lib/tor
 HashedControlPassword <<Aqui pondremos nuestra contraseña hasheada>>
 CookieAuthentication 1
 ```
- Una vez tengamos hecho los cambios, vamos a reiniciar el servicio de Tor:
- 
-``` 
-sudo service tor restart   
+
+Cuando hayamos hecho esto, vamos a crear las 8 instancias de Tor con el siguiente comando:
+```
+cp torrc torrc-instance0 & cp torrc torrc-instance1 & cp torrc torrc-instance2 & cp torrc torrc-instance3 & cp torrc torrc-instance4 & cp torrc torrc-instance5 & cp torrc torrc-instance6 & cp torrc torrc-instance7 & cp torrc torrc-instance8
 ```
 
-Ahora ya solo nos quedará configurar FoxyProxy, poniendo la IP _"127.0.0.1"_ y el puerto _"8118"_ y poner en el código la contraseña que hemos creado antes con Tor  _(en texto claro)_.
+Finalmente modificaremos las siguientes lineas de cada archivo:
+```
+torrc-instance0 --> SocksPort 9050 // ControlPort 9051 // DataDirectory /var/lib/tor/instance0 
+torrc-instance1 --> SocksPort 9150 // ControlPort 9151 // DataDirectory /var/lib/tor/instance1
+torrc-instance2 --> SocksPort 9250 // ControlPort 9251 // DataDirectory /var/lib/tor/instance2
+torrc-instance3 --> SocksPort 9350 // ControlPort 9351 // DataDirectory /var/lib/tor/instance3
+torrc-instance4 --> SocksPort 9450 // ControlPort 9451 // DataDirectory /var/lib/tor/instance4
+torrc-instance5 --> SocksPort 9550 // ControlPort 9551 // DataDirectory /var/lib/tor/instance5
+torrc-instance6 --> SocksPort 9650 // ControlPort 9651 // DataDirectory /var/lib/tor/instance6
+torrc-instance7 --> SocksPort 9750 // ControlPort 9751 // DataDirectory /var/lib/tor/instance7
+torrc-instance8 --> SocksPort 9850 // ControlPort 9851 // DataDirectory /var/lib/tor/instance8
+```
+
+Finalmente ya solo nos quedará configurar FoxyProxy, poniendo la IP _"127.0.0.1"_ y el puerto _"8118"_ si queremos usar http, pero en cambio para socks5 se utiliza el puerto _"8811"_.
 
 ```
-controller.authenticate(password='AQUI_LA_CONTRASEÑA')
+curl http://127.0.0.1:8118 http://echoip.com
 ```
 
 Ahora ya solo nos quedará disfrutar de nuestro código ejecutando:
