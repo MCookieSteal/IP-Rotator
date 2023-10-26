@@ -36,23 +36,23 @@ def connectTor(port):
     socket.socket = socks.socksocket
 
 def renew_tor():
-    controller0.authenticate(password='PASS')
+    controller0.authenticate(password='ksdjfhskdjfhskdjfh')
     controller0.signal(Signal.NEWNYM)
-    controller1.authenticate(password='PASS')
+    controller1.authenticate(password='ksdjfhskdjfhskdjfh')
     controller1.signal(Signal.NEWNYM)
-    controller2.authenticate(password='PASS')
+    controller2.authenticate(password='ksdjfhskdjfhskdjfh')
     controller2.signal(Signal.NEWNYM)
-    controller3.authenticate(password='PASS')
+    controller3.authenticate(password='ksdjfhskdjfhskdjfh')
     controller3.signal(Signal.NEWNYM)
-    controller4.authenticate(password='PASS')
+    controller4.authenticate(password='ksdjfhskdjfhskdjfh')
     controller4.signal(Signal.NEWNYM)
-    controller5.authenticate(password='PASS')
+    controller5.authenticate(password='ksdjfhskdjfhskdjfh')
     controller5.signal(Signal.NEWNYM)
-    controller6.authenticate(password='PASS')
+    controller6.authenticate(password='ksdjfhskdjfhskdjfh')
     controller6.signal(Signal.NEWNYM)
-    controller7.authenticate(password='PASS')
+    controller7.authenticate(password='ksdjfhskdjfhskdjfh')
     controller7.signal(Signal.NEWNYM)
-    controller8.authenticate(password='PASS')
+    controller8.authenticate(password='ksdjfhskdjfhskdjfh')
     controller8.signal(Signal.NEWNYM)
 
 def show_my_ip():
