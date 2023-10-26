@@ -19,7 +19,7 @@ EOF
 echo "PRIVOXY configurado --> Archivo de configuracion creado --> /etc/privoxy/config"
 systemctl restart privoxy.service
 mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy_backup.cfg
-touch haproxy.cfg
+touch /etc/haproxy/haproxy.cfg
 cat << EOF > /etc/haproxy/haproxy.cfg
 global
         log /dev/log    local0
@@ -77,4 +77,6 @@ EOF
 echo "HAPROXY configurado --> Archivo de configuracion creado --> /etc/haproxy/haproxy.cfg"
 mkdir /var/lib/tor/instance0 /var/lib/tor/instance1 /var/lib/tor/instance2 /var/lib/tor/instance3 /var/lib/tor/instance4 /var/lib/tor/instance5 /var/lib/tor/instance6 /var/lib/tor/instance7 /var/lib/tor/instance8
 echo "TOR configurado --> Archivo de configuracion creado --> /etc/tor/torrc"
+pip install -r requirements.txt >> basura.txt
+rm basura.txt
 echo "Instalacion terminada"
