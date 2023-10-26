@@ -76,7 +76,28 @@ backend tor_backend
 EOF
 echo "HAPROXY configurado --> Archivo de configuracion creado --> /etc/haproxy/haproxy.cfg"
 mkdir /var/lib/tor/instance0 /var/lib/tor/instance1 /var/lib/tor/instance2 /var/lib/tor/instance3 /var/lib/tor/instance4 /var/lib/tor/instance5 /var/lib/tor/instance6 /var/lib/tor/instance7 /var/lib/tor/instance8
+
+# Definir el contenido del primer archivo
+file_content="Log notice file /var/log/tor/notices.log
+SocksPort 9050
+ControlPort 9051
+DataDirectory /var/lib/tor/instance0
+HashedControlPassword 16:HAS_HERE
+CookieAuthentication 1"
+
+hashed_password=$(tor --hash-password "ksdjfhskdjfhskdjfh" 2>&1 | awk '/^16:/ {print $0}' )
+
+# Crear el primer archivo
+echo "$file_content" > torrc-instance0
+
+# Crear los siguientes seis archivos con contenido similar
+for i in {1..8}
+do
+    echo "$file_content" | sed -e "s/9050/90${i}0/g" -e "s/9051/90${i}1/g" -e "s/instance0/instance$i/g" -e "s/16:HAS_HERE/$hashed_password/g" > "torrc-instance$i"
+done
+mv torrc-instance0 /etc/tor/ & mv torrc-instance1 /etc/tor/ & mv torrc-instance2 /etc/tor/ & mv torrc-instance3 /etc/tor/ & mv torrc-instance4 /etc/tor/ & mv torrc-instance5 /etc/tor/ & mv torrc-instance6 /etc/tor/ & mv torrc-instance7 /etc/tor/ & mv torrc-instance8 /etc/tor/
 echo "TOR configurado --> Archivo de configuracion creado --> /etc/tor/torrc"
 pip install -r requirements.txt >> basura.txt
 rm basura.txt
+echo "Requirements --> Instalados"
 echo "Instalacion terminada"
