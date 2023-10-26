@@ -95,7 +95,7 @@ for i in {1..8}
 do
     echo "$file_content" | sed -e "s/9050/90${i}0/g" -e "s/9051/90${i}1/g" -e "s/instance0/instance$i/g" -e "s/16:HAS_HERE/$hashed_password/g" > "torrc-instance$i"
 done
-#mv torrc-instance0 /etc/tor/ & mv torrc-instance1 /etc/tor/ & mv torrc-instance2 /etc/tor/ & mv torrc-instance3 /etc/tor/ & mv torrc-instance4 /etc/tor/ & mv torrc-instance5 /etc/tor/ & mv torrc-instance6 /etc/tor/ & mv torrc-instance7 /etc/tor/ & mv torrc-instance8 /etc/tor/
+mv torrc-instance0 /etc/tor/ & mv torrc-instance1 /etc/tor/ & mv torrc-instance2 /etc/tor/ & mv torrc-instance3 /etc/tor/ & mv torrc-instance4 /etc/tor/ & mv torrc-instance5 /etc/tor/ & mv torrc-instance6 /etc/tor/ & mv torrc-instance7 /etc/tor/ & mv torrc-instance8 /etc/tor/
 echo "TOR configurado --> Archivo de configuracion creado --> /etc/tor/torrc"
 pip install -r requirements.txt >> basura.txt
 rm basura.txt
