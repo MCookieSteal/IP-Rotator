@@ -10,7 +10,7 @@ apt update & apt upgrade
 ./install.sh
 ```
 
-Ahora ya solo nos quedará disfrutar de nuestro código ejecutando:
+Ahora ya solo nos quedará disfrutar de nuestro código ejecutando, para parar el codigo usar "CONTROL + C", sino se quedara haproxy y las instancias de Tor levantadas:
 
 ```
 python tor_ip.py
@@ -49,6 +49,8 @@ Si por alguna razón, como la perdida de conexión a internet o cualquier otra c
 ```
 killall tor
 ```
+
+ESTE COMANDO NO ES NECESARIO USAR SI PARAIS EL CODIGO CON UN "CONTROL + C", YA QUE LO HACE EL PROPIO CODIGO.
 
 ## Aviso legal
 
