@@ -41,6 +41,15 @@ curl --proxy http://127.0.0.1:8118 http://icanhazip.com/
 ![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
 ![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
 
+
+## Errores
+
+Si por alguna razón, como la perdida de conexión a internet o cualquier otra circunstancia el código deja de funcionar/peta, es obligatorio ejecutar el siguiente comando para desactivar las instancias levantadas de Tor:
+
+```
+killall tor
+```
+
 ## Aviso legal
 
 El uso de este script es responsabilidad del usuario. Por favor, asegúrate de utilizarlo de forma ética y legal.
