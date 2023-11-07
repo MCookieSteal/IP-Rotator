@@ -1,4 +1,4 @@
-# Rotación de IPs con Tor
+# Rotado de IPs con Tor
 
 Este es un script en Python que utiliza la librería Stem para establecer una conexión con Tor y rotar las direcciones IP de manera programática. El objetivo es cambiar las direcciones IP para evitar el bloqueo o el rastreo en la web y contra ataques a SSH, FTP... Mediante Tor conseguiremos ir saltando de IP, utilizando dos puertos diferentes, SOCKS5 en le puerto 8811 y HTTP en el 8118. Es importante decir que este código está pensado para Linux, pero con algunos cambios podría ser útil en Windows.
 
