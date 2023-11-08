@@ -54,6 +54,7 @@ Finalmente, ya solo nos quedará utilizar el código de Tor con socks5 que utili
 ```
 curl --socks5 127.0.0.1:8811 http://icanhazip.com/
 ```
+_________________________________________________________________________________________________________________________________________________________________________________________
 ## Requerimientos
 
 Este script requiere la instalación previa de Tor y de FoxyProxy para el uso del rotado en el navegador (HTTP), ya que es sencillo de utilizar _(es un add-on que hay que instalar en nuestro navegador)_. Además, del script.
@@ -61,7 +62,7 @@ Este script requiere la instalación previa de Tor y de FoxyProxy para el uso de
 FoxyProxy Mozilla: https://addons.mozilla.org/es/firefox/addon/foxyproxy-standard/
 FoxyProxy Chrome: https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp
 ```
-
+_________________________________________________________________________________________________________________________________________________________________________________________
 ## Imágenes
 Como podemos ver en las siguientes imágenes, esta sería la configuración de FoxyProxy y este sería el funcionamiento del rotador de IPs. Una página para ver si tu IP se está rotando de manera correcta es, pero es importante saber que hay que cerrar y abrir el navegador para ver el cambio, por temas de cookies...:
 
@@ -73,7 +74,7 @@ curl --proxy http://127.0.0.1:8118 http://icanhazip.com/
 ![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/FoxyProxy.PNG?raw=true)
 ![](https://github.com/aldekoa15/IP-Rotator/blob/main/Images/Example.PNG?raw=true)
 
-
+_________________________________________________________________________________________________________________________________________________________________________________________
 ## Errores
 
 Si por alguna razón, como la perdida de conexión a internet o cualquier otra circunstancia el código deja de funcionar/peta, es obligatorio ejecutar el siguiente comando para desactivar las instancias levantadas de Tor:
@@ -83,7 +84,7 @@ killall tor
 ```
 
 ESTE COMANDO NO ES NECESARIO USAR SI PARAIS EL CODIGO CON UN "CONTROL + C", YA QUE LO HACE EL PROPIO CODIGO.
-
+_________________________________________________________________________________________________________________________________________________________________________________________
 ## Aviso legal
 
 El uso de este script es responsabilidad del usuario. Por favor, asegúrate de utilizarlo de forma ética y legal.
