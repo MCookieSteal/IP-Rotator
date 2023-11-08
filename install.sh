@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install haproxy privoxy tor >> basura.txt
+#apt install haproxy privoxy tor >> basura.txt
 echo "TOR, HAPROXY Y PRIVOXY --> instalado"
 sleep 1
 mv /etc/privoxy/config /etc/privoxy/config_backup1
@@ -18,7 +18,7 @@ forward-socks5 / 127.0.0.1:8811 .
 EOF
 echo "PRIVOXY configurado --> Archivo de configuracion creado --> /etc/privoxy/config"
 systemctl restart privoxy.service
-mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy_backup.cfg
+#mv /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy_backup.cfg
 touch /etc/haproxy/haproxy.cfg
 cat << EOF > /etc/haproxy/haproxy.cfg
 global
@@ -97,7 +97,7 @@ do
 done
 mv torrc-instance0 /etc/tor/ & mv torrc-instance1 /etc/tor/ & mv torrc-instance2 /etc/tor/ & mv torrc-instance3 /etc/tor/ & mv torrc-instance4 /etc/tor/ & mv torrc-instance5 /etc/tor/ & mv torrc-instance6 /etc/tor/ & mv torrc-instance7 /etc/tor/ & mv torrc-instance8 /etc/tor/
 echo "TOR configurado --> Archivo de configuracion creado --> /etc/tor/torrc"
-pip install -r requirements.txt >> basura.txt
+pip install -r Docker/requirements.txt >> basura.txt
 rm basura.txt
 echo "Requirements --> Instalados"
 echo "Instalacion terminada"
