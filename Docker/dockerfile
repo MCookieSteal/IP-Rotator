@@ -1,0 +1,17 @@
+FROM alpine:latest
+
+EXPOSE 8118/tcp 8811/tcp
+
+RUN apk --no-cache --no-progress --quiet upgrade
+RUN apk --no-cache --no-progress --quiet add python3 py3-pip haproxy tor bash privoxy curl sed
+RUN apk --no-cache --no-progress --quiet add proxychains-ng
+
+
+COPY requirements.txt /requirements.txt
+COPY installer.sh /installer.sh
+COPY tor_ip_alpine.py /tor_ip.py
+
+RUN pip install -r requirements.txt --no-cache --quiet
+RUN ./installer.sh --no-cache --no-progress --quiet
+
+CMD python3 tor_ip.py
