@@ -33,6 +33,7 @@ Una vez tengamos instalado docker, vamos a ejecutar el comando para crear el doc
 
 ```
 cd Docker
+chmod 777 installer.sh
 docker build -t rotating-tor-http-proxy .;
 docker run -p 8811:8811 rotating-tor-http-proxy
 ```
