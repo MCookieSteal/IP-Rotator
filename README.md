@@ -4,7 +4,17 @@ Este es un script en Python que utiliza la librería Stem para establecer una co
 
 ## Instalación
 
-### En máquina
+Hay dos maneras de instalar esta herramienta, una de ellas es sobre vuestra maquina, es decir configurando las herramientas y modificando los archivos de configuracion de vuestra maquina virtual, o la otra manera es mediante un docker. En ambos casos se recomienda usar proxychains(en vuestra maquina no en el docker) para facilitar el uso de socks5. Para ello seguiremos los siguientes pasos:
+
+```
+apt update & apt upgrade
+apt install proxychains
+nano /etc/proxychains.conf
+AÑADIMOS LA LINEA --> socks5 127.0.0.1 8811
+Ejemplo de uso -->  proxychains curl https://ifconfig.io  (solo si teneis levantado el rotado sino no funciona ya que el puerto 8811 estara "caido")
+```
+
+### Sobre vuestra maquina
 Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las isntancias que levantemos (solo balancea SOCKS5) y Privoxy para poder usar HTTP (no es necesario). Con el archivo isntall.sh vamos a conseguir descargar y configurar las herramientas.
 ```
 apt update & apt upgrade
