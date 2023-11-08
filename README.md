@@ -41,7 +41,7 @@ Finalmente ya solo nos quedará utilizar el codigo de Tor con socks5 que utiliza
 
 ```
 curl --socks5 127.0.0.1:8811 http://icanhazip.com/
-
+```
 ## Requerimientos
 
 Este script requiere la instalación previa de Tor y de FoxyProxy para el uso del rotado en el navegador (HTTP), ya que es sencillo de utilizar _(es un add-on que hay que instalar en nuestro navegador)_. Además, del script.
