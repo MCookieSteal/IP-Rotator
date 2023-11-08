@@ -32,6 +32,7 @@ Finalmente ya solo nos quedará configurar FoxyProxy, poniendo la IP _"127.0.0.1
 
 ```
 curl http://127.0.0.1:8118 http://echoip.com
+proxychains curl https://ifconfig.io (si habeis configurado proxychains)
 ```
 ### Docker
 Lo primero que haremos será descargar docker
