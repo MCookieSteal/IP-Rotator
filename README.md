@@ -4,6 +4,7 @@ Este es un script en Python que utiliza la librería Stem para establecer una co
 
 ## Instalación
 
+### En máquina
 Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las isntancias que levantemos (solo balancea SOCKS5) y Privoxy para poder usar HTTP (no es necesario). Con el archivo isntall.sh vamos a conseguir descargar y configurar las herramientas.
 ```
 apt update & apt upgrade
@@ -21,6 +22,25 @@ Finalmente ya solo nos quedará configurar FoxyProxy, poniendo la IP _"127.0.0.1
 ```
 curl http://127.0.0.1:8118 http://echoip.com
 ```
+### Docker
+Lo primero que haremos será descargar docker
+```
+apt update & apt upgrade
+apt install docker.io
+```
+
+Una vez tengamos instalado docker, vamos a ejecutar el comando para crear el docker y lo lanzaremos:
+
+```
+cd Docker
+docker build -t rotating-tor-http-proxy .;
+docker run -p 8811:8811 rotating-tor-http-proxy
+```
+
+Finalmente ya solo nos quedará utilizar el codigo de Tor con socks5 que utiliza el puerto _"8811"_. Ejecutamos el siguiente codigo en un terminal a parte para ver si tenemos conectividad.
+
+```
+curl --socks5 127.0.0.1:8811 http://icanhazip.com/
 
 ## Requerimientos
 
