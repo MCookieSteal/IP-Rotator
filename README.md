@@ -14,7 +14,7 @@ AÑADIMOS LA LINEA --> socks5 127.0.0.1 8811
 Ejemplo de uso -->  proxychains curl https://ifconfig.io  (solo si teneis levantado el rotado sino no funciona ya que el puerto 8811 estara "caido")
 ```
 
-#### Sobre vuestra maquina
+### Sobre vuestra maquina
 Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las instancias que levantemos (solo balancea SOCKS5) y Privoxy para poder usar HTTP (no es necesario). Con el archivo isntall.sh vamos a conseguir descargar y configurar las herramientas.
 
 ```
@@ -33,7 +33,7 @@ Finalmente ya solo nos quedará configurar FoxyProxy, poniendo la IP _"127.0.0.1
 ```
 curl http://127.0.0.1:8118 http://echoip.com
 ```
-#### Docker
+### Docker
 Lo primero que haremos será descargar docker
 ```
 apt update & apt upgrade
