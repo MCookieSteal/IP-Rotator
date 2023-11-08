@@ -4,7 +4,7 @@ Este es un script en Python que utiliza la librería Stem para establecer una co
 
 ## Instalación
 
-Hay dos maneras de instalar esta herramienta, una de ellas es sobre vuestra maquina, es decir configurando las herramientas y modificando los archivos de configuracion de vuestra maquina virtual, o la otra manera es mediante un docker. En ambos casos se recomienda usar proxychains(en vuestra maquina no en el docker) para facilitar el uso de socks5. Para ello seguiremos los siguientes pasos:
+Hay dos maneras de instalar esta herramienta, una de ellas es sobre vuestra máquina, es decir configurando las herramientas y modificando los archivos de configuración de vuestra máquina virtual, o la otra manera es mediante un docker. En ambos casos se recomienda usar proxychains(en vuestra maquina no en el docker) para facilitar el uso de socks5. Para ello seguiremos los siguientes pasos:
 
 ```
 apt update & apt upgrade
@@ -15,13 +15,14 @@ Ejemplo de uso -->  proxychains curl https://ifconfig.io  (solo si teneis levant
 ```
 
 ### Sobre vuestra maquina
-Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las isntancias que levantemos (solo balancea SOCKS5) y Privoxy para poder usar HTTP (no es necesario). Con el archivo isntall.sh vamos a conseguir descargar y configurar las herramientas.
+Lo primero que haremos es descargarnos las tres herramientas fundamentales que son _"tor, haproxy y privoxy"_, ya que necesitaremos las instancias de Tor, Haproxy para balancear las instancias que levantemos (solo balancea SOCKS5) y Privoxy para poder usar HTTP (no es necesario). Con el archivo isntall.sh vamos a conseguir descargar y configurar las herramientas.
+
 ```
 apt update & apt upgrade
 ./install.sh
 ```
 
-Ahora ya solo nos quedará disfrutar de nuestro código ejecutando, para parar el codigo usar "CONTROL + C", sino se quedara haproxy y las instancias de Tor levantadas:
+Ahora ya solo nos quedará disfrutar de nuestro código ejecutando, para parar el código usar "CONTROL + C", sino se quedará haproxy y las instancias de Tor levantadas:
 
 ```
 python tor_ip.py
@@ -48,7 +49,7 @@ docker build -t rotating-tor-http-proxy .;
 docker run -p 8811:8811 rotating-tor-http-proxy
 ```
 
-Finalmente ya solo nos quedará utilizar el codigo de Tor con socks5 que utiliza el puerto _"8811"_. Ejecutamos el siguiente codigo en un terminal a parte para ver si tenemos conectividad.
+Finalmente, ya solo nos quedará utilizar el código de Tor con socks5 que utiliza el puerto _"8811"_. Ejecutamos el siguiente código en un terminal a parte para ver si tenemos conectividad.
 
 ```
 curl --socks5 127.0.0.1:8811 http://icanhazip.com/
