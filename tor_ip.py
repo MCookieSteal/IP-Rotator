@@ -56,7 +56,12 @@ def renew_tor():
     controller8.signal(Signal.NEWNYM)
 
 def show_my_ip():
-    print("New IP is: " + requests.get('http://icanhazip.com/').text.strip())
+    try:
+        ip = requests.get('http://icanhazip.com').text.strip()
+        print(f"New IP is: {ip}")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Reintentando...")
 
 while True:
     renew_tor()
