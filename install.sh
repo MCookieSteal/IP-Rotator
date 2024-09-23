@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#apt install haproxy privoxy tor >> basura.txt
+apt install haproxy privoxy tor >> basura.txt
 echo "TOR, HAPROXY Y PRIVOXY --> instalado"
 sleep 1
 mv /etc/privoxy/config /etc/privoxy/config_backup1
