@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import signal
 import sys
@@ -8,9 +9,9 @@ import subprocess
 import requests
 from stem import Signal
 from stem.control import Controller
+from urllib.request import ProxyHandler, build_opener, install_opener
 
-resultado = subprocess.Popen("tor -f /etc/tor/torrc-instance0 & tor -f /etc/tor/torrc-instance1 & tor -f /etc/tor/torrc-instance2 & tor -f /etc/tor/torrc-instance3 & tor -f /etc/tor/torrc-instance4 & tor -f /etc/tor/torrc-instance5 & tor -f /etc/tor/torrc-instance6 & tor -f /etc/tor/torrc-instance7 & tor -f /etc/tor/torrc-instance8 && haproxy -f /etc/haproxy/haproxy.cfg", shell=True, text=True)
-resultado = subprocess.run("haproxy -f /etc/haproxy/haproxy.cfg", shell=True, capture_output=True, text=True)
+resultado = subprocess.Popen("tor -f /etc/tor/torrc-instance0 & tor -f /etc/tor/torrc-instance1 & tor -f /etc/tor/torrc-instance2 & tor -f /etc/tor/torrc-instance3 & tor -f /etc/tor/torrc-instance4 & tor -f /etc/tor/torrc-instance5 & tor -f /etc/tor/torrc-instance6 & tor -f /etc/tor/torrc-instance7 & tor -f /etc/tor/torrc-instance8 & systemctl restart haproxy.service", shell=True, text=True)
 time.sleep(8)
 
 controller0 = Controller.from_port(port=9051)
@@ -27,7 +28,7 @@ i = 0
 
 def signal_handler(sig, frame):
     print("Programa detenido")
-    resultado = subprocess.run("killall tor", shell=True, capture_output=True, text=True)
+    resultado = subprocess.run("killall tor & systemctl stop haproxy.service", shell=True, capture_output=True, text=True)
     sys.exit(0)
 
 def connectTor(port):
@@ -55,8 +56,12 @@ def renew_tor():
     controller8.signal(Signal.NEWNYM)
 
 def show_my_ip():
-    resultado = subprocess.run("curl --socks5 127.0.0.1:8811 http://icanhazip.com/ -s", shell=True, capture_output=False, text=True)
-
+    try:
+        ip = requests.get('http://icanhazip.com').text.strip()
+        print(f"New IP is: {ip}")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Reintentando...")
 
 while True:
     renew_tor()
