@@ -11,7 +11,6 @@ apt update & apt upgrade
 apt install proxychains
 nano /etc/proxychains.conf
 AÑADIMOS LA LINEA --> socks5 127.0.0.1 8811
-Ejemplo de uso -->  proxychains curl https://ifconfig.io  (solo si teneis levantado el rotado sino no funciona ya que el puerto 8811 estara "caido")
 ```
 
 ### Sobre vuestra maquina
